@@ -1,0 +1,51 @@
+body
+{
+   background-color: antiquewhite ; 
+
+}
+
+/*CSS pour la page principale */ 
+#pageRoot
+{
+    display: flex ; 
+    align-content: center ; 
+    max-width: 400px ;
+    flex-direction: column ; 
+}
+
+#timeZone , #printZone, #controlZone, #saveZone
+{
+    display: flex ; 
+    border: dotted red 2px ; 
+    justify-content: space-around ; 
+}
+
+/* CSS pour la TimeZone */
+#timeChrono span 
+{
+    font-size: 2em ; 
+}
+
+/* CSS pour la printZone */
+#printZone
+{
+    flex-direction: column ; 
+}
+.logo-trash
+{
+    width: 20px ;
+    display: inline-block ;  
+}
+.scoreCourse
+{
+    display: flex ; 
+    justify-content: space-around ; 
+}
+.scoreCourse span, .scoreCourse img 
+{
+    display: inline-block ; 
+}
+/* CSS pour la controleZone 
+
+/* CSS pour la saveZone 
+
