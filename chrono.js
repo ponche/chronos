@@ -4,6 +4,11 @@ let timeChrono = new Date;
 let tagChronoTime = document.querySelector("#timeChrono span") ; 
 let theSandTime ; 
 
+let tagButtonStart = document.querySelector("#buttonStart") ; 
+let tagButtonReset = document.querySelector("#buttonReset") ; 
+let tagButtonRun = document.querySelector("#buttonRun") ; 
+let tagButtonStop = document.querySelector("#buttonStop") ; 
+
 let hoursTime ; 
 let minutesTime ; 
 let secondesTime ; 
@@ -16,7 +21,7 @@ function resetChrono()
 function stopChrono()
 {
     clearInterval(theSandTime) ; 
-    // dans le doute faire un detruit tous 
+    theSandTime = undefined ;  
     
 }
 
@@ -67,3 +72,23 @@ function updateChrono()
 
 
 }
+
+
+// ajout des Event Listener 
+tagButtonStart.addEventListener("click", function(){
+    startChrono() ; 
+});
+
+tagButtonStop.addEventListener("click", function(){
+    stopChrono() ; 
+}); 
+
+tagButtonReset.addEventListener("click", function(){
+    resetChrono() ; 
+});
+
+tagButtonRun.addEventListener("click", function(){
+    runChrono() ; 
+}); 
+
+
