@@ -1,6 +1,8 @@
 body
 {
    background-color: antiquewhite ; 
+   display: flex ; 
+   justify-content: center ; 
 
 }
 
@@ -8,7 +10,6 @@ body
 #pageRoot
 {
     display: flex ; 
-    align-content: center ; 
     max-width: 400px ;
     flex-direction: column ; 
 }
