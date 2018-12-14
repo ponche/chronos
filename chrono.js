@@ -40,7 +40,7 @@ function updateChrono()
 
 
     // ajoute des zero dans les valeur si neccessaire 
-    hoursTime = timeChrono.getHours() < 10 ? "0" + timeChrono.getHours() : timeChrono.getHours() ; 
+    hoursTime = timeChrono.getUTCHours() < 10 ? "0" + timeChrono.getUTCHours() : timeChrono.getUTCHours() ; 
     minutesTime = timeChrono.getMinutes() < 10 ? "0" + timeChrono.getMinutes() : timeChrono.getMinutes() ; 
     secondesTime = timeChrono.getSeconds() < 10 ? "0" + timeChrono.getSeconds() : timeChrono.getSeconds() ; 
     milliSecondeTime = timeChrono.getSeconds() < 10 ? "0" + timeChrono.getMilliseconds() : timeChrono.getMilliseconds() ; 
