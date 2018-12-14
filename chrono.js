@@ -22,14 +22,31 @@ function stopChrono()
 
 function startChrono()
 {
+    // suppresion de intervall si déja un en cours  
+    if(theSandTime != undefined)
+    {
+        clearInterval(theSandTime);
+        theSandTime = undefined ; 
+    }
     timeStart = new Date; 
     theSandTime = setInterval(updateChrono, 100) ; 
 }
 function runChrono()
 {
     // on change le temps du départ 
+    if(timeStart == undefined)
+    {
+        // demare le chrono a UTC 0 
+        startChrono() ; 
+    }
     bigBen = new Date ; 
-    timeStart.setTime(bigben.getTime() - timeChrono.getTime()) ; 
+    timeStart.setTime(bigBen.getTime() - timeChrono.getTime()) ; 
+    // suppresion de intervall si déja un en cours  
+    if(theSandTime != undefined)
+    {
+        clearInterval(theSandTime);
+        theSandTime = undefined ; 
+    }
     theSandTime = setInterval(updateChrono, 100) ; 
 }
 
