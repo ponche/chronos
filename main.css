@@ -49,3 +49,10 @@ body
 
 /* CSS pour la saveZone 
 
+
+/* les element disparu */
+.alpha
+{
+    display: none ; 
+}
+
