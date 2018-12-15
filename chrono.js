@@ -8,6 +8,13 @@ let tagButtonStart = document.querySelector("#buttonStart");
 let tagButtonReset = document.querySelector("#buttonReset");
 let tagButtonRun = document.querySelector("#buttonRun");
 let tagButtonStop = document.querySelector("#buttonStop");
+let tagInputNameCourse = document.querySelector("#inputNameCourse") ; 
+let tagButtonSubmitSave = document.querySelector("#buttonSubmitSaveCourse") ; 
+
+// variable lock reset before reset 
+let savedCourse = false ; 
+
+let listeCourse = [] ; 
 
 let hoursTime;
 let minutesTime;
@@ -15,7 +22,19 @@ let secondesTime;
 let milliSecondeTime;
 
 function resetChrono() {
-    // a définir 
+    // si l'utlisateur n'as pas save, on demande si veut faire faire le reset 
+    if(!savedCourse)
+    {
+        if(!confirm("Vous n'avez pas sauvegarde la course, etes vous sur du Reset ? "))
+            return ; 
+             
+    }
+    // on change les button 
+    tagButtonReset.classList.add("alpha");
+    tagButtonRun.classList.add("alpha");
+    tagButtonStart.classList.remove("alpha");
+    // on remet le compteur à zéro 
+    tagChronoTime.innerHTML = "00:00:00" ; 
 }
 function stopChrono() {
     clearInterval(theSandTime);
@@ -24,6 +43,8 @@ function stopChrono() {
 }
 
 function startChrono() {
+    // le chrono demarre on considère qui n'as pas fait de sauvegarde 
+    savedCourse = false ; 
     // suppresion de intervall si déja un en cours  
     if (theSandTime != undefined) {
         clearInterval(theSandTime);
@@ -65,6 +86,22 @@ function updateChrono() {
 
 }
 
+// sauveggarde course 
+function saveCourse()
+{
+    let nameCourse = tagInputNameCourse.value ; 
+    let temps = timeChrono ; 
+    listeCourse.push({name: nameCourse, time: temps}) ; 
+    localStorage.setItem("dataCourse", JSON.stringify(listeCourse)) ; 
+    tagInputNameCourse.value = "" ; 
+    savedCourse = true ; 
+}
+
+function loadDataCourses()
+{
+    listeCourse = JSON.parse(localStorage.getItem("dataCourse"));
+}
+
 
 // ajout des Event Listener 
 tagButtonStart.addEventListener("click", function () {
@@ -82,9 +119,9 @@ tagButtonStop.addEventListener("click", function () {
 
 tagButtonReset.addEventListener("click", function () {
     resetChrono();
-    tagButtonReset.classList.add("alpha");
-    tagButtonRun.classList.add("alpha");
-    tagButtonStart.classList.remove("alpha");
+    // tagButtonReset.classList.add("alpha");
+    // tagButtonRun.classList.add("alpha");
+    // tagButtonStart.classList.remove("alpha");
 
 });
 
@@ -95,5 +132,10 @@ tagButtonRun.addEventListener("click", function () {
     tagButtonStop.classList.remove("alpha");
 
 });
+
+tagButtonSubmitSave.addEventListener("click", function(){
+    saveCourse() ; 
+})
+
 
 
