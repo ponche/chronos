@@ -2,6 +2,7 @@ let bigBen;
 let timeStart;
 let timeChrono = new Date;
 let tagChronoTime = document.querySelector("#timeChrono span");
+let tagPrintZone = document.querySelector("#printZone") ; 
 let theSandTime;
 
 let tagButtonStart = document.querySelector("#buttonStart");
@@ -110,6 +111,7 @@ function createTagCourseTime(nameCourse, timeCourse)
     var tagTrashButton = document.createElement("img");
     tagTrashButton.src = "img/logoTrash.png" ; 
     tagTrashButton.alt = "logo trash" ; 
+    tagTrashButton.classList.add("logo-trash") ; 
 
     // course name 
     var tagNameCourse = document.createElement("span") ; 
@@ -123,8 +125,22 @@ function createTagCourseTime(nameCourse, timeCourse)
     tagScoreCourse.appendChild(tagTrashButton); 
     tagScoreCourse.appendChild(tagNameCourse); 
     tagScoreCourse.appendChild(tagTimeCourse) ; 
+
+    return tagScoreCourse ; 
     
 
+}
+function drawListCourse()
+{  
+    tagPrintZone.innerHTML = "" ; 
+    listeCourse.forEach(function(course){
+        var time = new Date(course.time)
+        var sec = time.getSeconds() ; 
+        var min = time.getMinutes() ; 
+        var hour = time.getUTCHours() ; 
+        stringTime = hour + ":" + min + ":" + sec; 
+        tagPrintZone.appendChild(createTagCourseTime(course.name, stringTime)); 
+    })
 }
 
 
