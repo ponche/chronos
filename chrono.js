@@ -101,6 +101,31 @@ function loadDataCourses()
 {
     listeCourse = JSON.parse(localStorage.getItem("dataCourse"));
 }
+function createTagCourseTime(nameCourse, timeCourse)
+{
+    var tagScoreCourse = document.createElement("div"); 
+    tagScoreCourse.classList.add("scoreCourse") ; 
+
+    // trash logo 
+    var tagTrashButton = document.createElement("img");
+    tagTrashButton.src = "img/logoTrash.png" ; 
+    tagTrashButton.alt = "logo trash" ; 
+
+    // course name 
+    var tagNameCourse = document.createElement("span") ; 
+    tagNameCourse.innerHTML = nameCourse ; 
+
+    // course time 
+    var tagTimeCourse = document.createElement("span") ; 
+    tagTimeCourse.innerHTML = timeCourse ; 
+
+    // assembly 
+    tagScoreCourse.appendChild(tagTrashButton); 
+    tagScoreCourse.appendChild(tagNameCourse); 
+    tagScoreCourse.appendChild(tagTimeCourse) ; 
+    
+
+}
 
 
 // ajout des Event Listener 
