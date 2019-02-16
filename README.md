@@ -17,7 +17,11 @@ petit application d'un chronomètre en cours de création
 
 ### comment sauvegarder la course 
 
-1. remplir le champ **name-race** 
+1. remplir le champ 
 2. appuyer sur le bouton **save** 
+
+### comment supprimer une course 
+
+- cliquer sur la poubelle pour la course concerné 
 
  
